@@ -7,7 +7,7 @@ import { IEClients } from "src/app/modules/Client";
   styleUrls: ["./clients.component.scss"]
 })
 export class ClientsComponent implements OnInit {
-  clients;
+  clients: IEClients[];
   totalOwed: number;
   constructor(private clientsService: ClientsService) {}
 

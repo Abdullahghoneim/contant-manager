@@ -1,27 +1,35 @@
 import { Injectable } from "@angular/core";
 import { IEClients } from "../modules/Client";
 import { AngularFireDatabase } from "@angular/fire/database";
+import {
+  AngularFirestore,
+  AngularFirestoreCollection
+} from "@angular/fire/firestore";
+
 import { map } from "rxjs/operators";
 import { Observable } from "rxjs";
 @Injectable()
 export class ClientsService {
-  clients: Observable<any>;
+  clientsCollection: AngularFirestoreCollection<IEClients>;
+  clients: Observable<IEClients[]>;
 
-  constructor(private db: AngularFireDatabase) {
-    this.clients = this.db
-      .list("clients")
-      .snapshotChanges()
-      .pipe(
-        map(actions => {
-          actions.map(a => ({ key: a.key, ...a.payload.val() }));
+  constructor(private db: AngularFirestore) {
+    this.clientsCollection = this.db.collection<IEClients>("clients");
+    this.clients = this.clientsCollection.snapshotChanges().pipe(
+      map(actions =>
+        actions.map(a => {
+          const data = a.payload.doc.data() as IEClients;
+          const id = a.payload.doc.id;
+          return { id, ...data };
         })
-      );
-    console.log(this.clients);
+      )
+    );
   }
+
   getClient() {
     return this.clients;
   }
   addClient(client) {
-    this.db.list("clients").push(client);
+    // this.db.list("clients").push(client);
   }
 }

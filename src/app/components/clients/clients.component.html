@@ -23,13 +23,13 @@
   </thead>
   <tbody>
     <tr *ngFor="let client of clients">
-      <td scope="row">{{ client.key }}</td>
+      <td scope="row">{{ client.id }}</td>
       <td scope="row">{{ client.fristName }} {{ client.lastName }}</td>
       <td scope="row">{{ client.email }}</td>
       <td scope="row">{{ client.balance | currency }}</td>
       <td scope="row">
         <a
-          [routerLink]="['/client/', client.$key]"
+          [routerLink]="['/client/', client.id]"
           href=""
           class="btn btn-light btn-sm"
         >
