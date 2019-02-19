@@ -1,3 +1,44 @@
-<p>
-  client-detils works!
-</p>
+<div class="mt-4">
+  <div class="row">
+    <div class="col-md-6">
+      <a href="" class="btn btn-link" routerLink="">
+        <i class="fas fa-arrow-circle-left"></i>
+        Back To Dashboard</a
+      >
+    </div>
+    <div class="col-md-6">
+      <div class="btn-group float-right">
+        <a href="" [routerLink]="['/edit-client/+id']" class="btn btn-light"
+          ><i class="fas fa-marker"></i> Edit</a
+        >
+        <button class="btn btn-danger" type="button" (click)="onDeleteClinte()">
+          <i class="fas fa-trash"></i> Delete
+        </button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="client" class="card mt-2">
+    <h3 class="card-header">
+      {{ client.fristName | uppercase }}
+    </h3>
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <h3>Client Name : {{ client.fristName }} {{ client.lastName }}</h3>
+        </div>
+        <h3 class="col float-right">
+          Balance :
+          <span [class.text-danger]="client.balance === 0">
+            {{ client.balance | currency }}
+          </span>
+        </h3>
+      </div>
+      <hr />
+      <div class="list-group">
+        <li class="list-group-item">ID : {{ id }}</li>
+        <li class="list-group-item">Email : {{ client.email }}</li>
+        <li class="list-group-item">Phone : {{ client.phone }}</li>
+      </div>
+    </div>
+  </div>
+</div>
