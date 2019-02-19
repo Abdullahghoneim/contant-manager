@@ -1,0 +1,116 @@
+<div class="mt-4">
+  <div class="row">
+    <div class="col-md-6">
+      <a href="" routerLink="" class="btn btn-link"> Back To Dashboard </a>
+    </div>
+    <div class="col-md-8">
+      <div class="card">
+        <h4 class="card-header">Add Client</h4>
+        <form
+          class="mt-4 card-body"
+          #form="ngForm"
+          (ngSubmit)="addClient(form)"
+        >
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="fristName">Frist Name</label>
+                <input
+                  type="text"
+                  [(ngModel)]="client.fristName"
+                  id="fristName"
+                  name="fristName"
+                  placeholder="Johan"
+                  class="form-control"
+                  #fristName="ngModel"
+                  required
+                />
+                <div
+                  *ngIf="fristName.errors?.required && fristName.touched"
+                  class="alert alert-danger"
+                >
+                  Frist Name Is Required
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input
+                  type="text"
+                  [(ngModel)]="client.lastName"
+                  id="lastName"
+                  name="lastName"
+                  placeholder="Dohe"
+                  class="form-control"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email </label>
+            <input
+              type="email"
+              [(ngModel)]="client.email"
+              id="email"
+              name="email"
+              class="form-control"
+              placeholder="name@email.com"
+              #email="ngModel"
+              required
+            />
+            <div
+              *ngIf="email.errors?.required && email.touched"
+              class="alert alert-danger"
+            >
+              Email is Required
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input
+              type="number"
+              [(ngModel)]="client.phone"
+              id="phone"
+              placeholder="+201060649873"
+              #phone="ngModel"
+              name="phone"
+              class="form-control"
+              required
+            />
+            <div
+              *ngIf="phone.errors?.required && phone.touched"
+              class="alert alert-danger"
+            >
+              Phone Is Required
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="phone">Balance</label>
+            <input
+              type="text"
+              [(ngModel)]="client.balance"
+              id="balance"
+              name="balance"
+              class="form-control"
+              placeholder="22"
+              required
+              #balance="ngModel"
+            />
+            <div
+              *ngIf="balance.errors?.required && balance.touched"
+              class="alert alert-danger"
+            >
+              Balance is Required
+            </div>
+          </div>
+          <input
+            [disabled]="form.invalid"
+            type="submit"
+            class="btn btn-success btn-block btn-sm"
+          />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
