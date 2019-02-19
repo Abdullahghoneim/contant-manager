@@ -8,12 +8,10 @@ import { AppComponent } from "./app.component";
 import { AddClientComponent } from "./components/add-client/add-client.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { ClientDetilsComponent } from "./components/client-detils/client-detils.component";
-
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { AngularFireModule } from "@angular/fire";
 import { environment } from "../environments/environment";
 import { ClientsService } from "./services/clients";
-import { AngularFireDatabaseModule } from "@angular/fire/database";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 @NgModule({
   declarations: [
@@ -29,9 +27,8 @@ import { AngularFirestoreModule } from "@angular/fire/firestore";
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule,
-    FormsModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    FormsModule
   ],
   providers: [ClientsService],
   bootstrap: [AppComponent]

@@ -8,10 +8,7 @@
     </div>
   </div>
 </div>
-<table
-  *ngIf="clients?.length > 0; else noClients"
-  class="table mt-4 table-striped "
->
+<table class="table mt-4 table-striped ">
   <thead class="thead-dark">
     <tr>
       <th scope="col">id</th>
@@ -41,6 +38,6 @@
   </tbody>
 </table>
 
-<ng-template class="mt-5" #noClients>
+<!-- <ng-template class="mt-4" #noClients>
   <h3>Thers No Clients Yet !!!!!</h3>
-</ng-template>
+</ng-template> -->

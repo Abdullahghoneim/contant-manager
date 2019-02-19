@@ -1,13 +1,12 @@
 import { Injectable } from "@angular/core";
 import { IEClients } from "../modules/Client";
-import { AngularFireDatabase } from "@angular/fire/database";
 import {
   AngularFirestore,
   AngularFirestoreCollection
 } from "@angular/fire/firestore";
-
 import { map } from "rxjs/operators";
 import { Observable } from "rxjs";
+
 @Injectable()
 export class ClientsService {
   clientsCollection: AngularFirestoreCollection<IEClients>;
@@ -30,6 +29,6 @@ export class ClientsService {
     return this.clients;
   }
   addClient(client) {
-    // this.db.list("clients").push(client);
+    this.clientsCollection.add(client);
   }
 }
