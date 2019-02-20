@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { IEClients } from "src/app/modules/Client";
 import { Router } from "@angular/router";
 import { ClientsService } from "../../services/clients";
+// import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: "app-add-client",
@@ -16,7 +17,11 @@ export class AddClientComponent implements OnInit {
     phone: null,
     balance: null
   };
-  constructor(private clientService: ClientsService, private router: Router) {}
+  constructor(
+    private clientService: ClientsService,
+    private router: Router
+  ) // , private flahMessage:FlashMessagesService
+  {}
 
   ngOnInit() {}
   addClient({ value, valid }: { value: IEClients; valid: boolean }) {

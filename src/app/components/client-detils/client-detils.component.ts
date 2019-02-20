@@ -10,6 +10,7 @@ import { IEClients } from "src/app/modules/Client";
 export class ClientDetilsComponent implements OnInit {
   id: string;
   client: IEClients;
+  editeBalance: boolean = false;
   constructor(
     private clientService: ClientsService,
     private router: Router,
@@ -23,5 +24,10 @@ export class ClientDetilsComponent implements OnInit {
     this.clientService.getClient(this.id).subscribe(client => {
       this.client = client;
     });
+  }
+  updateBalance(id) {
+    this.clientService.updateClient(id, this.client);
+    this.router.navigate([`/client/${this.id}`]);
+    this.editeBalance = false;
   }
 }

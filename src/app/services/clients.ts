@@ -38,4 +38,7 @@ export class ClientsService {
   addClient(client) {
     this.clientsCollection.add(client);
   }
+  updateClient(id, client) {
+    this.clientDoc.update(client);
+  }
 }

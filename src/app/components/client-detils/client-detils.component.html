@@ -26,11 +26,37 @@
         <div class="col">
           <h3>Client Name : {{ client.fristName }} {{ client.lastName }}</h3>
         </div>
-        <h3 class="col float-right">
+        <h3 class="float-right">
           Balance :
-          <span [class.text-danger]="client.balance === 0">
+          <span
+            [class.text-danger]="client.balance == 0"
+            [class.text-success]="client.balance > 0"
+          >
             {{ client.balance | currency }}
           </span>
+          <small>
+            <a (click)="editeBalance = !editeBalance">
+              <i style="cursor: pointer;" class="fas fa-pen"></i>
+            </a>
+          </small>
+          <br />
+          <form
+            *ngIf="editeBalance"
+            (ngSubmit)="updateBalance(id)"
+            class="mt-2 form-inline float-right"
+          >
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control form-control-sm "
+                [(ngModel)]="client.balance"
+                name="clientBalance"
+              />
+              <button type="submit" class="btn btn-success btn-sm">
+                Update
+              </button>
+            </div>
+          </form>
         </h3>
       </div>
       <hr />

@@ -1,6 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
+// import { FlashMessagesModule } from "angular2-flash-messages";
 import { AppRoutingModule } from "./app-routing.module";
 import { ClientsComponent } from "./components/clients/clients.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
@@ -13,6 +14,8 @@ import { AngularFireModule } from "@angular/fire";
 import { environment } from "../environments/environment";
 import { ClientsService } from "./services/clients";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
+import { EditClientComponent } from "./components/edit-client/edit-client.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +24,9 @@ import { AngularFirestoreModule } from "@angular/fire/firestore";
     ClientsComponent,
     SidebarComponent,
     AddClientComponent,
-    ClientDetilsComponent
+    ClientDetilsComponent,
+    PageNotFoundComponent,
+    EditClientComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +34,7 @@ import { AngularFirestoreModule } from "@angular/fire/firestore";
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     FormsModule
+    // FlashMessagesModule
   ],
   providers: [ClientsService],
   bootstrap: [AppComponent]
