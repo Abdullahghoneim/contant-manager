@@ -38,7 +38,13 @@ export class ClientsService {
   addClient(client) {
     this.clientsCollection.add(client);
   }
-  updateClient(id, client) {
+  updateBalance(id, client) {
     this.clientDoc.update(client);
+  }
+  deleteClient(id) {
+    this.clientDoc.delete();
+  }
+  updateClient(client) {
+    this.clientDoc.update(client)
   }
 }

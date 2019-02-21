@@ -20,7 +20,7 @@ export class AddClientComponent implements OnInit {
   constructor(
     private clientService: ClientsService,
     private router: Router
-  ) // , private flahMessage:FlashMessagesService
+  ) 
   {}
 
   ngOnInit() {}

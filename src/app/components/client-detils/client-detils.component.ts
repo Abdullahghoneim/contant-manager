@@ -26,8 +26,12 @@ export class ClientDetilsComponent implements OnInit {
     });
   }
   updateBalance(id) {
-    this.clientService.updateClient(id, this.client);
+    this.clientService.updateBalance(id, this.client);
     this.router.navigate([`/client/${this.id}`]);
     this.editeBalance = false;
+  }
+  onDeleteClinte() {
+    this.clientService.deleteClient(this.id);
+    this.router.navigate(["/"]);
   }
 }
